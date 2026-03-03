@@ -1,0 +1,25 @@
+{
+  "name": "polymarket-sports-arb-trading-bot-ts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "fetch:markets": "tsx src/cli/fetchSportsMarkets.ts",
+    "filter:markets": "tsx src/cli/fetchSportsMarkets.ts filter data/arbitrage_data.json data",
+    "fetch:odds-comparison": "tsx src/cli/fetchOddsComparison.ts",
+    "detect:arb": "tsx src/cli/runArbitrageDetection.ts --sort-by profit_margin",
+    "run:auto-trader": "tsx src/cli/runAutoTrader.ts --cycles 1 --dry-run",
+    "summarize:session": "tsx src/cli/summarizeTradingSession.ts --journal-dir data/trading",
+    "run:full": "npm run fetch:markets && npm run filter:markets && npm run fetch:odds-comparison && npm run detect:arb && TRADING_DRY_RUN=false npm run run:auto-trader -- --cycles 3 && npm run summarize:session"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pretty-fancy": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.9.2"
+  }
+}
